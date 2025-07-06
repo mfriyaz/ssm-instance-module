@@ -1,6 +1,6 @@
 # root main.tf
 module "ubuntu_ssm_instance" {
-  source                = "./modules/ubuntu_ssm_instance"
+  source                = "../modules/ubuntu_ssm_instance"
   instance_name         = "UbuntuSingleTier01"
   ami_id                = "ami-0c1907b6d738188e5"
   instance_type         = "t2.micro"
