@@ -47,12 +47,12 @@ resource "aws_iam_role" "ubuntu_ssm_role" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "ssm_core" {
+resource "aws_iam_role_policy_attachment" "ubuntu_ssm_core" {
   role       = aws_iam_role.ubuntu_ssm_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_instance_profile" "ssm_profile" {
+resource "aws_iam_instance_profile" "ubuntu_ssm_profile" {
   name = "EC2SSMInstanceProfile"
   role = aws_iam_role.ubuntu_ssm_role.name
 }
@@ -64,7 +64,7 @@ resource "aws_instance" "ubuntu" {
   key_name                    = var.key_name
   vpc_security_group_ids      = [aws_security_group.this.id]
   associate_public_ip_address = true
-  iam_instance_profile        = aws_iam_instance_profile.ssm_profile.name
+  iam_instance_profile        = aws_iam_instance_profile.ubuntu_ssm_profile.name
   user_data                   = var.user_data_script
 
   tags = {
