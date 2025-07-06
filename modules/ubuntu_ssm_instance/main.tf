@@ -53,7 +53,7 @@ resource "aws_iam_role_policy_attachment" "ubuntu_ssm_core" {
 }
 
 resource "aws_iam_instance_profile" "ubuntu_ssm_profile" {
-  name = "EC2SSMInstanceProfile"
+  name = "RiyazEC2SSMInstanceProfile"
   role = aws_iam_role.ubuntu_ssm_role.name
 }
 
