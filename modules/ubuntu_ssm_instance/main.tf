@@ -33,7 +33,7 @@ resource "aws_security_group" "this" {
 
 # IAM Role for SSM
 resource "aws_iam_role" "ubuntu_ssm_role" {
-  name = "EC2SSMRole"
+  name = "UbuntuEC2SSMRole"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
