@@ -1,3 +1,8 @@
+# account region
+provider "aws" {
+  region = "ap-southeast-1" 
+  }
+
 # root main.tf
 module "ubuntu_ssm_instance" {
   source                = "./modules/ubuntu_ssm_instance"
