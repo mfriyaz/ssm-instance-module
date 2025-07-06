@@ -1,0 +1,18 @@
+# root main.tf
+module "ubuntu_ssm_instance" {
+  source                = "./modules/ubuntu_ssm_instance"
+  instance_name         = "UbuntuSingleTier01"
+  ami_id                = "ami-0c1907b6d738188e5"
+  instance_type         = "t2.micro"
+  key_name              = "terrafrom"
+  security_group_name   = "allow_ssh_http"
+  allowed_ports         = [22, 80, 8080]
+  user_data_script      = <<-EOF
+    #!/bin/bash
+    apt update -y
+    apt install -y apache2
+    systemctl enable apache2
+    systemctl start apache2
+    echo "<h1>Ubuntu Web Server Running</h1>" > /var/www/html/index.html
+  EOF
+}
