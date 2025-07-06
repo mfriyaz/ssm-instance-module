@@ -17,5 +17,5 @@ output "security_group_id" {
 
 output "iam_role_name" {
   description = "The name of the IAM role attached to the instance"
-  value       = aws_iam_role.ssm_role.name
+  value       = aws_iam_role.ubuntu_ssm_role.name
 }
