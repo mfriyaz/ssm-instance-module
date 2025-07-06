@@ -32,7 +32,7 @@ resource "aws_security_group" "this" {
 }
 
 # IAM Role for SSM
-resource "aws_iam_role" "ssm_role" {
+resource "aws_iam_role" "ubuntu_ssm_role" {
   name = "EC2SSMRole"
 
   assume_role_policy = jsonencode({
@@ -48,13 +48,13 @@ resource "aws_iam_role" "ssm_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "ssm_core" {
-  role       = aws_iam_role.ssm_role.name
+  role       = aws_iam_role.ubuntu_ssm_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 resource "aws_iam_instance_profile" "ssm_profile" {
   name = "EC2SSMInstanceProfile"
-  role = aws_iam_role.ssm_role.name
+  role = aws_iam_role.ubuntu_ssm_role.name
 }
 
 # EC2 Instance
