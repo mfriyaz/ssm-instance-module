@@ -10,7 +10,7 @@ module "ubuntu_ssm_instance" {
   ami_id                = "ami-0c1907b6d738188e5"
   instance_type         = "t2.micro"
   key_name              = "terrafrom"
-  security_group_name   = "allow_ssh_http"
+  security_group_name   = "allow_ubuntu_ssh_http"
   allowed_ports         = [22, 80, 8080, 8082, 9090]
   user_data_script      = local.ubuntu_startup_script
 }
