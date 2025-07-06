@@ -7,7 +7,11 @@ module "ubuntu_ssm_instance" {
   key_name              = "terrafrom"
   security_group_name   = "allow_ssh_http"
   allowed_ports         = [22, 80, 8080]
-  user_data_script      = <<-EOF
+  user_data_script      = local.ubuntu_startup_script
+}
+
+locals {
+  ubuntu_startup_script = <<-EOF
     #!/bin/bash
     apt update -y
     apt install -y apache2
