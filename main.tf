@@ -7,11 +7,11 @@ provider "aws" {
 module "ubuntu_ssm_instance" {
   source                = "./modules/ubuntu_ssm_instance"
   instance_name         = "UbuntuSingleTier01"
-  ami_id                = "ami-0c1907b6d738188e5"
+  ami_id                = "ami-02c7683e4ca3ebf58"
   instance_type         = "t2.micro"
   key_name              = "terrafrom"
   security_group_name   = "allow_ubuntu_ssh_http"
-  allowed_ports         = [22, 80, 8080, 8082, 9090]
+  allowed_ports         = [22, 80, 8080, 8082]
   user_data_script      = local.ubuntu_startup_script
 }
 
