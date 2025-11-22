@@ -6,8 +6,8 @@ provider "aws" {
 # root main.tf
 module "ubuntu_ssm_instance" {
   source                = "./modules/ubuntu_ssm_instance"
-  instance_name         = "LinuxSingleTier01"
-  ami_id                = "ami-0ffd8e96d1336b6ac"
+  instance_name         = "UbuntuSingleTier01"
+  ami_id                = "ami-00d8fc944fb171e29"
   instance_type         = "t2.micro"
   key_name              = "terrafrom"
   security_group_name   = "allow_ubuntu_ssh_http"
